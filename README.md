@@ -7,7 +7,7 @@ In order to use Mayorscan, first download by typing or copying and pasting in to
   cd mayorscan
   chmod u+x mayorscan.sh
   
-To run, type ./mayorscan.sh with an IP address, IP address with CIDR notation, or a URL
+To run, type ./mayorscan.sh with an IP address, IP address with range (ex. 0-254), or a URL
 
 Mayorscan runs up to four different scans, including:
   Ping Scan
