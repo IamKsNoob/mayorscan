@@ -84,15 +84,17 @@ if [ "$ans" == "y" ]
 then
 echo -e "\e[32mNow Conducting Vulnerability Scanning.  This will take some time.\e[0m"
 fi
-sleep 2
-echo -e "\e[32mI am going to check to make sure that Nmap's vulnerability database is up to date.\e[0m"
-nmap --script-updatedb
+
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 then
+echo -e "\e[32mI am going to check to make sure that Nmap's vulnerability database is up to date.\e[0m"
+nmap --script-updatedb
 nmap --script vuln $name >&1 | tee $name/$name.VulnerabilityScan.txt
 
 elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 then
+echo -e "\e[32mI am going to check to make sure that Nmap's vulnerability database is up to date.\e[0m"
+nmap --script-updatedb
 nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt;
 else [ "$ans" = "n" ]
 fi
