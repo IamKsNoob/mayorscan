@@ -4,8 +4,8 @@ echo -en "\e[32mWelcome to :Mayorsir:'s Automated Nmap Scan 3000\n\n\e[0m"
 echo "Would you like a single scan result, or separate files for each scan?"
 if [ "$1" == "" ]
 then
-echo -e "\e[31mYou forgot an IP Address!\e[0m"
-echo -e "\e[31mExample - ./mayorscan.sh 192.168.1.1 or 192.168.1.0/24\e[0m"
+echo -e "\e[31mYou forgot a target!\e[0m"
+echo -e "\e[31mExample - ./mayorscan.sh 192.168.1.1 or cybersecpadawan.com\e[0m"
 exit 0 
 fi
 
