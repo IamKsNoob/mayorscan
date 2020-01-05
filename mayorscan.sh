@@ -1,6 +1,6 @@
 #!/bin/bash
 name=$1
-echo -en "\e[32mWelcome to :Mayorsir:'s Nmap Scan 3000\n\n\e[0m"
+echo -en "\e[32mWelcome to :Mayorsir:'s Automated Nmap Scan 3000\n\n\e[0m"
 echo "Would you like a single scan result, or separate files for each scan?"
 if [ "$1" == "" ]
 then
