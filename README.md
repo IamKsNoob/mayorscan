@@ -26,8 +26,6 @@ Mayorscan.lite is the lite version of the Mayor Scan 3000, a script that simplif
 has a terminal interface that offers less logical options, however the same results.
 
 In order to use mayorscan.lite, first download by typing or copying and pasting in to a Linux terminal: 
-<br>git clone https://github.com/dievus/mayorscan.lite.git
-<br>cd mayorscan.lite
 <br>chmod u+x mayorscan.lite.sh
 
 To run, type ./mayorscan.sh and follow the instructions
