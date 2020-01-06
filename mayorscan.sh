@@ -125,7 +125,6 @@ leave() {
 	echo -e
 	exit
 }
-greeting
 scan_time
 leave
 
