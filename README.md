@@ -4,6 +4,7 @@ Mayorscan is a Bash script that adds simplistic options to running Nmap scans ag
 
 In order to use Mayorscan, first download by typing or copying and pasting in to a Linux terminal:
   <br>git clone https://github.com/dievus/mayorscan.git
+  <br>I recommend moving the directory to your desktop at this point for simplicity, as well as some experimental directory downloads in the future
   <br>cd mayorscan
   <br>chmod u+x mayorscan.sh
   
