@@ -8,46 +8,60 @@ read name
 	echo -e "Example - 192.168.1.1 or cybersecpadawan.com"; tput sgr0;
 	exit 0
 fi
+echo -e
 tput setaf 2; echo -e "Now running The Mayor's Nmap Scan Lite edition..."; tput sgr0;
-
+sleep 2s
 #Create Directory
 
+echo -e
+tput setaf 2; echo -e "You will need a directory to store your scan.  I've got you covered."; tput sgr0;
+echo -e
+sleep 2s
+
 if [ ! -d "$name" ];then
+	tput setaf 2; echo -e "Creating a Folder for $name."; tput sgr0;
+	sleep 2s
+	echo -e	
+	tput setaf 2; echo -e "Folder is located in the same directory as mayorscan-lite."; tput sgr0;
+	echo -e
 	mkdir $name
+	sleep 2s
+else
+	tput bold; echo -e "Directory already created.  Skipping to scanning phase."; tput sgr0;
+	echo -e
+	sleep 2s
 fi
 
-#Ping Scan
-tput setaf 2; echo -e "Running mandatory Ping Scan."; tput sgr0;
-sudo nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
-
-#Software Scan
-
+#Scan
 tput setaf 2; echo -e "#####################################"; tput sgr0;
-tput bold; echo -e "Do you wish to conduct a Software Version Scan? (y/n)?"; tput sgr0;
-read ans
-	if [ "$ans" == "y" ]
-		then	
-tput setaf 2; echo -e "Scanning for Target Software."; tput sgr0;
-sudo nmap -sV $name $name >&1 | tee $name/$name.SoftwareScan.txt
-	else [ "$ans" != "y" ]
-fi
-
-#OS System Scanning
-
+echo -e
+tput bold; echo -e "Running Ping Scan."; tput sgr0;
+echo -e
+sudo nmap -Pn $name >&1 | tee $name/$name.FullScan.txt
+echo -e
 tput setaf 2; echo -e "#####################################"; tput sgr0;
-tput bold; echo "Do you wish to conduct a Operating System Version Scan? (y/n)?"; tput sgr0;
-read ans
-	if [ "$ans" == "y" ]
-		then	
-tput setaf 2; echo -e "Scanning for Target Operating System Information.  Please be patient."; tput sgr0;
-sudo nmap -O $name $name >&1 | tee $name/$name.OperatingSystemScan.txt
-	else [ "$ans" != "y" ]
-fi
-
-#Vulnerability Assessment Scanning
-
+echo -e
+tput bold; echo -e "Conducting Software Version Scan"; tput sgr0;
+echo -e
+sudo nmap -sV $name >&1 | tee -a $name/$name.FullScan.txt
+echo -e
 tput setaf 2; echo -e "#####################################"; tput sgr0;
-tput bold; echo -e "Do you wish to conduct a Vulnerability Scan against your target(s)? This may take some time. (y/n)"; tput sgr0;
+echo -e
+tput bold; echo -e "Conducting Operating System Version Scan"; tput sgr0;
+echo -e
+sudo nmap -O $name >&1 | tee -a $name/$name.FullScan.txt
+echo -e
+tput setaf 2; echo -e "#####################################"; tput sgr0;
+echo -e
+tput bold; echo -e "Conducting Target Vulnerability Scan"; tput sgr0;
+echo -e
+sudo nmap --script-updatedb
+sudo nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt
+echo -e
+tput setaf 2; echo -e "Scans Complete. Your scan results are located in $name/$name. Have a great day!"; tput sgr0;
+
+exit 0
+
 read ans
 	if [ "$ans" == "y" ]
 		then
