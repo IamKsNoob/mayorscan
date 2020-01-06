@@ -18,7 +18,7 @@ fi
 
 #Ping Scan
 tput setaf 2; echo -e "Running mandatory Ping Scan."; tput sgr0;
-nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
+sudo nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
 
 #Software Scan
 
@@ -28,7 +28,7 @@ read ans
 	if [ "$ans" == "y" ]
 		then	
 tput setaf 2; echo -e "Scanning for Target Software."; tput sgr0;
-nmap -sV $name $name >&1 | tee $name/$name.SoftwareScan.txt
+sudo nmap -sV $name $name >&1 | tee $name/$name.SoftwareScan.txt
 	else [ "$ans" != "y" ]
 fi
 
@@ -40,7 +40,7 @@ read ans
 	if [ "$ans" == "y" ]
 		then	
 tput setaf 2; echo -e "Scanning for Target Operating System Information.  Please be patient."; tput sgr0;
-nmap -O $name $name >&1 | tee $name/$name.OperatingSystemScan.txt
+sudo nmap -O $name $name >&1 | tee $name/$name.OperatingSystemScan.txt
 	else [ "$ans" != "y" ]
 fi
 
@@ -52,8 +52,8 @@ read ans
 	if [ "$ans" == "y" ]
 		then
 	tput setaf 2; echo -e "Now Conducting Vulnerability Scanning."; tput sgr0;
-	nmap --script-updatedb
-	nmap --script vuln $name $name >&1 | tee $name/$name.VulnScan.txt
+	sudo nmap --script-updatedb
+	sudo nmap --script vuln $name $name >&1 | tee $name/$name.VulnScan.txt
 	else [ "$ans" != "y" ]
 	fi
 
