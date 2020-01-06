@@ -64,12 +64,12 @@ echo -e
 
 tput setaf 2; echo -e "#####################################################################"; tput sgr0;
 echo -e
-tput bold; echo -e "Do you wish to conduct a Software Version Scan? (y/n)?"; tput sgr0;
+tput bold; tput setaf 2; echo -e "Do you wish to conduct a Software Version Scan? (y/n)?"; tput sgr0;
 read ans
 if [ "$ans" = "y" ]
 	then
 	echo -e
-	tput setaf 2; echo -e "Scanning for Target Software."; tput sgr0;
+	tput bold; echo -e "Scanning for Target Software."; tput sgr0;
 	echo -e
 fi
 
@@ -88,12 +88,12 @@ echo -e
 
 tput setaf 2; echo -e "#####################################################################"; tput sgr0;
 echo -e
-tput bold; echo "Do you wish to conduct a Operating System Version Scan? (y/n)?"; tput sgr0;
+tput bold; tput setaf 2; echo "Do you wish to conduct a Operating System Version Scan? (y/n)?"; tput sgr0;
 read ans
 if [ "$ans" = "y" ]
 	then	
 	echo -e
-	tput setaf 2; echo -e "Scanning for Target Operating System information.  Please be patient."; tput sgr0;
+	tput bold; echo -e "Scanning for Target Operating System information.  Please be patient."; tput sgr0;
 fi
 
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
@@ -111,18 +111,18 @@ echo -e
 
 tput setaf 2; echo -e "#####################################################################"; tput sgr0;
 echo -e
-tput bold; echo -e "Do you wish to conduct a Vulnerability Scan against your target(s)? This may take some time. (y/n)"; tput sgr0;
+tput bold; tput setaf 2; echo -e "Do you wish to conduct a Vulnerability Scan against your target(s)? This may take some time. (y/n)"; tput sgr0;
 read ans
 if [ "$ans" == "y" ]
 	then
 	echo -e
-	tput setaf 2; echo -e "Now Conducting Vulnerability Scanning.  This will take some time."; tput sgr0;
+	tput bold; echo -e "Now Conducting Vulnerability Scanning.  This will take some time."; tput sgr0;
 fi
 
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 	then
 	echo -3
-	tput setaf 2; echo -e "Ensuring that Nmap's vulnerability database is up to date."; tput sgr0;
+	tput bold 2; echo -e "Ensuring that Nmap's vulnerability database is up to date."; tput sgr0;
 	echo -e
 	sudo nmap --script-updatedb 
 	echo -e
@@ -130,7 +130,7 @@ if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 	then
 	echo -e
-	tput setaf 2; echo -e "Ensuring that Nmap's vulnerability database is up to date."; tput sgr0;
+	tput bold 2; echo -e "Ensuring that Nmap's vulnerability database is up to date."; tput sgr0;
 	echo -e
 	sudo nmap --script-updatedb
 	echo -e
