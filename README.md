@@ -7,7 +7,7 @@ In order to use Mayorscan, first download by typing or copying and pasting in to
   <br>cd mayorscan
   <br>chmod u+x mayorscan.sh
   
-To run, type ./mayorscan.sh with an IP address or a URL
+To run, type ./mayorscan.sh
 
 Mayorscan runs up to four different scans, including:
   <br>Ping Scan
