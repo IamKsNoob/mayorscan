@@ -61,14 +61,3 @@ echo -e
 tput setaf 2; echo -e "Scans Complete. Your scan results are located in $name/$name. Have a great day!"; tput sgr0;
 
 exit 0
-
-read ans
-	if [ "$ans" == "y" ]
-		then
-	tput setaf 2; echo -e "Now Conducting Vulnerability Scanning."; tput sgr0;
-	sudo nmap --script-updatedb
-	sudo nmap --script vuln $name $name >&1 | tee $name/$name.VulnScan.txt
-	else [ "$ans" != "y" ]
-	fi
-
-exit 0
