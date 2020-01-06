@@ -70,7 +70,6 @@ if [ "$ans" = "y" ]
 	then
 	echo -e
 	tput bold; echo -e "Scanning for Target Software."; tput sgr0;
-	echo -e
 fi
 
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
