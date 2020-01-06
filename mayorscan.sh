@@ -33,7 +33,6 @@ echo -e
 scan_time(){
 	tput bold; tput setaf 2; echo -e "Would you like a single scan result, or separate files for each scan?"; tput sgr0;
 echo -e
-echo -e
 tput bold; echo -e "Enter 1 for Single File"; tput sgr0;
 tput bold; echo -e "Enter 2 for Separate Files for Each Scan"; tput sgr0;
 read scan
