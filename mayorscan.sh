@@ -26,7 +26,7 @@ fi
 #tput setaf 2; echo -en "Welcome to :Mayorsir:'s Automated Nmap Scan 3000"; tput sgr0;
 #echo -e
 scan_time(){
-	tput setaf 2; echo -en "Would you like a single scan result, or separate files for each scan?\n"; tput sgr0;
+	tput setaf 2; echo -en "Would you like a single scan result, or separate files for each scan?"; tput sgr0;
 echo -e
 tput bold; echo -e "Enter 1 for Single File"; tput sgr0;
 tput bold; echo -e "Enter 2 for Separate Files for Each Scan"; tput sgr0;
