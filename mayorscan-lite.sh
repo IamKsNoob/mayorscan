@@ -17,7 +17,7 @@ if [ ! -d "$name" ];then
 fi
 
 #Ping Scan
-tput setaf2; echo -e"Running mandatory Ping Scan."; tput sgr0;
+tput setaf 2; echo -e"Running mandatory Ping Scan."; tput sgr0;
 nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
 
 #Software Scan
