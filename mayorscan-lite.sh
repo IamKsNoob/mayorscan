@@ -1,5 +1,20 @@
 #!/bin/bash
-echo -en "Please Enter an IP Address or website"
+greeting() {
+
+	tput setaf 2;
+	echo -e
+	echo -e 	"--------------------"
+	echo -e 	"- Mayor Scan 3000  -"
+	echo -e		"-   Lite Edition   -"
+	echo -e 	"--------------------"
+	echo -e
+	echo -e		"Custom Nmap Bash script"	
+	echo -e		"by The Mayor/Dievus"
+	echo -e
+tput sgr0;
+}
+greeting
+tput bold; echo -en "Please Enter an IP Address or website"; tput sgr0;
 echo -e
 read name
 	if [ "$name" == "" ]
@@ -9,11 +24,9 @@ read name
 	exit 0
 fi
 echo -e
-tput setaf 2; echo -e "Now running The Mayor's Nmap Scan Lite edition..."; tput sgr0;
-sleep 2s
+sleep 1s
 #Create Directory
 
-echo -e
 tput setaf 2; echo -e "You will need a directory to store your scan.  I've got you covered."; tput sgr0;
 echo -e
 sleep 2s
