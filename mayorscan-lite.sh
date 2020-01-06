@@ -71,6 +71,6 @@ echo -e
 sudo nmap --script-updatedb
 sudo nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt
 echo -e
-tput setaf 2; echo -e "Scans Complete. Your scan results are located in mayorscan/$name. Have a great day!"; tput sgr0;
+tput setaf 2; echo -e "Scans Complete. Your scan results are located in a folder named /$name. Have a great day!"; tput sgr0;
 
 exit 0
