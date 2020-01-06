@@ -120,7 +120,7 @@ fi
 
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 	then
-	echo -3
+	echo -e
 	tput bold 2; echo -e "Ensuring that Nmap's vulnerability database is up to date."; tput sgr0;
 	echo -e
 	sudo nmap --script-updatedb 
