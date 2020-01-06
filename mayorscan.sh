@@ -42,10 +42,10 @@ fi
 
 if [ "$scan" = "1" ]
 	then
-	nmap -Pn $name >&1 | tee $name/$name.FullScan.txt
+	sudo nmap -Pn $name >&1 | tee $name/$name.FullScan.txt
 	elif [ "$scan" = "2" ]
 	then 
-	nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
+	sudo nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
 fi
 
 #Software Scan
@@ -60,10 +60,10 @@ fi
 
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 	then
-	nmap -sV $name >&1 | sort -u | tee $name/$name.SoftwareScan.txt
+	sudo nmap -sV $name >&1 | sort -u | tee $name/$name.SoftwareScan.txt
 elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 	then
-	nmap -sV $name >&1 | tee -a $name/$name.FullScan.txt	
+	sudo nmap -sV $name >&1 | tee -a $name/$name.FullScan.txt	
 	else [ "$ans" = "n" ]
 fi
 
@@ -79,10 +79,10 @@ fi
 
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 	then
-	nmap -O $name >&1 | sort -u | tee $name/$name.OperatingSystemScan.txt
+	sudo nmap -O $name >&1 | sort -u | tee $name/$name.OperatingSystemScan.txt
 	elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 	then
-	nmap -O $name >&1 | tee -a $name/$name.FullScan.txt
+	sudo nmap -O $name >&1 | tee -a $name/$name.FullScan.txt
 	else [ "$ans2" = "n" ]
 fi
 
@@ -99,13 +99,13 @@ fi
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 	then
 	tput setaf 2; echo -e "I am going to check to make sure that Nmap's vulnerability database is up to date."; tput sgr0;
-	nmap --script-updatedb
-	nmap --script vuln $name >&1 | tee $name/$name.VulnerabilityScan.txt
+	sudo nmap --script-updatedb
+	sudo nmap --script vuln $name >&1 | tee $name/$name.VulnerabilityScan.txt
 elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 	then
 	tput setaf 2; echo -e "I am going to check to make sure that Nmap's vulnerability database is up to date."; tput sgr0;
-	nmap --script-updatedb
-	nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt;
+	sudo nmap --script-updatedb
+	sudo nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt;
 else [ "$ans" = "n" ]
 fi
 }
