@@ -97,16 +97,17 @@ read ans
 if [ "$ans" == "y" ]
 	then
 	tput setaf 2; echo -e "Now Conducting Vulnerability Scanning.  This will take some time."; tput sgr0;
+	echo -e
 fi
 
 if [ "$ans" = "y" ] && [ "$scan" = "2" ]
 	then
-	tput setaf 2; echo -e "I am going to check to make sure that Nmap's vulnerability database is up to date."; tput sgr0;
+	tput setaf 2; echo -e "Ensuring that Nmap's vulnerability database is up to date."; tput sgr0;
 	sudo nmap --script-updatedb
 	sudo nmap --script vuln $name >&1 | tee $name/$name.VulnerabilityScan.txt
 elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 	then
-	tput setaf 2; echo -e "I am going to check to make sure that Nmap's vulnerability database is up to date."; tput sgr0;
+	tput setaf 2; echo -e "Ensuring that Nmap's vulnerability database is up to date."; tput sgr0;
 	sudo nmap --script-updatedb
 	sudo nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt;
 else [ "$ans" = "n" ]
