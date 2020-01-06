@@ -93,6 +93,21 @@ elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 	nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt;
 else [ "$ans" = "n" ]
 fi
-tput setaf 2; echo -e "Thanks for using Mayor Scan 3000.  Have a wonderful day!."; tput sgr0;
-exit 0
+
+leave() {
+
+	tput setaf 2;
+	echo -e
+	echo -e 	"--------------------"
+	echo -e 	"- Scan Complete -"
+	echo -e 	"--------------------"
+	echo -e
+	echo -e		"Thanks for using Mayor Scan 3000. Have a great Day!"	
+	echo -e
+	exit
+}
+leave
+
+#tput setaf 2; echo -e "Thanks for using Mayor Scan 3000.  Have a wonderful day!."; tput sgr0;
+#exit 0
 
