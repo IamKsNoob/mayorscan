@@ -1,12 +1,4 @@
 #!/bin/bash
-name=$1
-	if [ "$1" == "" ]
-	then
-	tput setaf 1; echo -e "You forgot a target!";
-	echo -e "Example - ./mayorscan.sh 192.168.1.1 or cybersecpadawan.com"; tput sgr0;
-	exit 0 
-fi
-
 greeting() {
 
 	tput setaf 2;
@@ -19,6 +11,17 @@ greeting() {
 	echo -e		"by The Mayor/Dievus"
 	echo -e
 }
+greeting
+
+tput bold; echo -en "Please Enter an IP Address or website"; tput sgr0;
+echo -e
+read name
+	if [ "$name" == "" ]
+	then
+	tput setaf 1; echo -e "You forgot to enter a target!";
+	echo -e "Example - 192.168.1.1 or cybersecpadawan.com"; tput sgr0;
+	exit 0
+fi
 
 #tput setaf 2; echo -en "Welcome to :Mayorsir:'s Automated Nmap Scan 3000"; tput sgr0;
 #echo -e
@@ -113,9 +116,9 @@ leave() {
 
 	tput setaf 2;
 	echo -e
-	echo -e 	"--------------------"
-	echo -e 	"- Scan Complete -"
-	echo -e 	"--------------------"
+	echo -e 	"-------------------"
+	echo -e 	"-  Scan Complete  -"
+	echo -e 	"-------------------"
 	echo -e
 	echo -e		"Thanks for using Mayor Scan 3000. Have a great Day!"	
 	echo -e
