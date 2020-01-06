@@ -1,21 +1,36 @@
 #!/bin/bash
 name=$1
-if [ "$1" == "" ]
+	if [ "$1" == "" ]
 	then
 	tput setaf 1; echo -e "You forgot a target!";
 	echo -e "Example - ./mayorscan.sh 192.168.1.1 or cybersecpadawan.com"; tput sgr0;
 	exit 0 
 fi
-tput setaf 2; echo -en "Welcome to :Mayorsir:'s Automated Nmap Scan 3000"; tput sgr0;
-echo -e
-tput setaf 2; echo -en "Would you like a single scan result, or separate files for each scan?\n"; tput sgr0;
+
+greeting() {
+
+	tput setaf 2;
+	echo -e
+	echo -e 	"--------------------"
+	echo -e 	"- Mayor Scan 3000 - "
+	echo -e 	"--------------------"
+	echo -e
+	echo -e		"Custom Nmap Bash script"	
+	echo -e		"by The Mayor/Dievus"
+	echo -e
+}
+
+#tput setaf 2; echo -en "Welcome to :Mayorsir:'s Automated Nmap Scan 3000"; tput sgr0;
+#echo -e
+scan_time(){
+	tput setaf 2; echo -en "Would you like a single scan result, or separate files for each scan?\n"; tput sgr0;
 echo -e
 tput bold; echo -e "Enter 1 for Single File"; tput sgr0;
 tput bold; echo -e "Enter 2 for Separate Files for Each Scan"; tput sgr0;
 read scan
 if [ "$scan" = "1" ] || [ "$scan" = "2" ]
 	then
-	tput setaf 2; echo -e "Now running The Mayor's Nmap Scan 3000. Running a Mandatory Ping Scan against target(s)..."; tput sgr0;
+	tput setaf 2; echo -e "Running a Mandatory Ping Scan against target(s)..."; tput sgr0;
 	else
 	tput setaf 1; echo -e "Failure.  Please enter either a 1 or a 2."; tput sgr0;
 	exit 0
@@ -93,7 +108,7 @@ elif [ "$ans" = "y" ] && [ "$scan" = "1" ]
 	nmap --script vuln $name >&1 | tee -a $name/$name.FullScan.txt;
 else [ "$ans" = "n" ]
 fi
-
+}
 leave() {
 
 	tput setaf 2;
@@ -106,8 +121,11 @@ leave() {
 	echo -e
 	exit
 }
+greeting
+scan_time
 leave
 
 #tput setaf 2; echo -e "Thanks for using Mayor Scan 3000.  Have a wonderful day!."; tput sgr0;
 #exit 0
+
 
