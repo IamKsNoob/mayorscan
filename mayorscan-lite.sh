@@ -51,19 +51,18 @@ echo -e
 tput bold; echo -e "Running Ping Scan to check if host is up."; tput sgr0;
 echo -e
 sudo nmap -Pn $name >&1 | tee $name/$name.FullScan.txt
-
+file=$name.Fullscan.txt
+if cat $file | grep "Host is down"; then
+tput bold; tput setaf 1; echo -e "No live host found. Exiting now."; tput sgr0;
+exit 0
+else echo
+fi
 echo -e
 tput setaf 2; echo -e "#####################################"; tput sgr0;
 echo -e
 tput bold; echo -e "Conducting Software Version Scan"; tput sgr0;
 echo -e
 sudo nmap -sV $name >&1 | tee -a $name/$name.FullScan.txt
-file=$name.Fullscan.txt
-if [ cat $file | grep "Host is down" ]; then
-tput bold; tput setaf 1; echo -e "No live host found. Exiting now."; tput sgr0;
-exit 0
-else echo
-fi
 echo -e
 tput setaf 2; echo -e "#####################################"; tput sgr0;
 echo -e
