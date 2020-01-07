@@ -91,7 +91,7 @@ tput setaf 2 bold; echo -e "Running nmap-vulners and Vulscan. [Experimental]"; t
 #Dependency Check#
 
 check1=/usr/share/nmap/scripts/vulscan/
-check2=/usr/share/nmap/scripts.vulners.nse
+check2=/usr/share/nmap/scripts/vulners.nse
 if [ -d "$check1" ] && [ -f "$check2" ]; then
 sudo nmap --script nmap-vulners,vulscan --script-args vulscandb=scipvuldb.csv -sV $name >&1 | tee -a $name/$name.FullScan.txt
 	echo -e
