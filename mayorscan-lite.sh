@@ -51,7 +51,7 @@ echo -e
 tput bold; echo -e "Running Ping Scan to check if host is up."; tput sgr0;
 echo -e
 NMAP=$(sudo nmap -Pn $name)
-if [ $NMAP | grep "Host is down" ]; then
+if [[ $NMAP | grep "Host is down" ]]; then
 tput setaf 1; tput bold; echo -e "No Live Host found.  Exiting now."; tput sgr0;
 else
 echo
