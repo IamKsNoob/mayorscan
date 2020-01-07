@@ -153,7 +153,7 @@ tput bold; echo -e "Checking for necessary dependencies."; tput sgr0;
 echo -e
 sleep 1s
 check1=/usr/share/nmap/scripts/vulscan/
-check2=/usr/share/nmap/scripts.vulners.nse
+check2=/usr/share/nmap/scripts/vulners.nse
 if [ "$scan" = "1" ] && [ -d "$check1" ] || [ -f "$check2" ]; then
 	tput setaf 2; tput bold; echo -e "[SUCCESS] Dependencies installed. Initializing Scanning. This may take some time."; tput sgr0;
 	echo -e
