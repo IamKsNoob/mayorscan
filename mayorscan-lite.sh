@@ -54,6 +54,7 @@ NMAP=$(sudo nmap -Pn $name)
 if [[$NMAP | grep "Host is down" ]]; then
 tput setaf 1; tput bold; echo -e "No Live Host found.  Exiting now."; tput sgr0;
 else
+echo
 fi
 #>&1 | tee $name/$name.FullScan.txt
 echo -e
