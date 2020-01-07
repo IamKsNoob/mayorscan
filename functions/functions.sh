@@ -154,17 +154,19 @@ echo -e
 sleep 1s
 check1=/usr/share/nmap/scripts/vulscan/
 check2=/usr/share/nmap/scripts/vulners.nse
-if [ "$scan" = "1" ] && [ -d "$check1" ] || [ -f "$check2" ]; then
-	tput setaf 2; tput bold; echo -e "[SUCCESS] Dependencies installed. Initializing Scanning. This may take some time."; tput sgr0;
-	echo -e
-	sudo nmap --script nmap-vulners,vulscan --script-args vulscandb=scipvuldb.csv -sV $name >&1 | tee -a $name/$name.FullScan.txt
-	echo -e
-elif [ "$scan" = "2" ] && [ -d "$check1" ] || [ -f "$check2" ]; then
-	tput setaf 2; tput bold; echo -e "[SUCCESS] Dependencies installed. Initializing Scanning. This may take some time."; tput sgr0;
-	echo -e
-	sudo nmap --script nmap-vulners,vulscan --script-args vulscandb=scipvuldb.csv -sV $name >&1 | tee $name/$name.Vulner.Vulscan.txt
-	echo -e
+if [ -d "$check1" ] || [ -f "$check2" ]; then
+	tput bold; tput setaf 2; echo -e "[SUCCESS] Dependencies installed. Initializing Scanning. This may take some time."; tput sgr0;
 else vuln_depen
+fi
+if [ "$scan" = "1" ]; then
+	echo -e
+	sudo nmap --script vulscan --script-args vulscandb=exploitdb.csv -sV $name >&1 | tee -a $name/$name.FullScan.txt
+	echo -e
+
+elif [ "$scan" = "2" ]; then
+	echo -e
+	sudo nmap --script vulscan --script-args vulscandb=exploitdb.csv -sV $name >&1 | tee $name/$name.Vulner.Vulscan.txt
+	echo -e
 fi
 
 }
