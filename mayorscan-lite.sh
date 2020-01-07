@@ -51,7 +51,7 @@ echo -e
 tput bold; echo -e "Running Ping Scan to check if host is up."; tput sgr0;
 echo -e
 sudo nmap -Pn $name >&1 | tee $name/$name.FullScan.txt
-file=$name.Fullscan.txt
+file=$name/$name.Fullscan.txt
 if cat $file | grep "Host is down"; then
 tput bold; tput setaf 1; echo -e "No live host found. Exiting now."; tput sgr0;
 exit 0
