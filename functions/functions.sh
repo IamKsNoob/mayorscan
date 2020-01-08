@@ -44,7 +44,7 @@ if [ ! -d "$name" ];then
 	tput setaf 2; tput bold; echo -e "Creating a Folder for $name."; tput sgr0;
 	sleep 2s
 	echo -e
-	tput setaf 2; tput bold; echo -e "Folder is located in the same directory as msv2."; tput sgr0;	
+	tput setaf 2; tput bold; echo -e "Folder is located in the same directory as Mayorscan."; tput sgr0;	
 	mkdir $name
 	echo -e
 	sleep 2s
@@ -214,6 +214,7 @@ tput bold;
 echo -e "[1] -A All Scan";
 echo -e "[2] Vulnerability Scan";
 echo -e "[3] All Listed Scans";
+echo -e "[4] Ping Scan";
 echo -e "[99] Exit to Terminal";
 	read scan_set
 		case $scan_set in
@@ -244,7 +245,7 @@ echo -e "[99] Exit to Terminal";
 				;;
 		"4")		tput bold; echo -e "Running Ping Scan to check if host is up."; tput sgr0;
 				echo -e
-				sudo nmap -Pn $name >&1 | tee $name/$name.FullScan.txt
+				sudo nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
 				return_menu
 				break
 				;;		
