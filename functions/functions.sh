@@ -214,7 +214,6 @@ tput bold;
 echo -e "[1] -A All Scan";
 echo -e "[2] Vulnerability Scan";
 echo -e "[3] All Listed Scans";
-echo -e "[4] Ping Scan";
 echo -e "[99] Exit to Terminal";
 	read scan_set
 		case $scan_set in
@@ -243,7 +242,7 @@ echo -e "[99] Exit to Terminal";
 				return_menu
 				break				
 				;;
-		"4")		tput bold; echo -e "Running Ping Scan to check if host is up."; tput sgr0;
+		"28")		tput bold; echo -e "Running Ping Scan to check if host is up."; tput sgr0;
 				echo -e
 				sudo nmap -Pn $name >&1 | tee $name/$name.PingScan.txt
 				return_menu
