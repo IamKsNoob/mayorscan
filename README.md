@@ -16,11 +16,10 @@ Results will be outputted to a file based on selection at the beginning of the p
   <br>Option 2 creates individual files based on the selected scans
 <br>File output will be into a directory based on the operating directory of Mayorscan
 
-# Older version may be supported based on my need
-
 # A script called update.sh is also included
 <br>
 Update.sh runs apt-get update, upgrade, and dist-upgrade, as well as pulls the current Mayorscan git to your machine, and, if located in the same level directory as the Mayorscan folder, will replace it with the new version.  
 <br>
 # IT WILL REMOVE YOUR OLD MAYORSCAN DIRECTORY. 
+<br>
 If you wish to keep the old mayorscan folder and contents, make sure update.sh is located in a different directory location.
