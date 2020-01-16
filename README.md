@@ -2,15 +2,14 @@
 
 Mayorscan is a Bash script that adds simplistic options to running Nmap scans against a target.
 
-# Current version is msv2.1 in the repository, which adds substantial logic and scans to the tool.
 
 In order to use Mayorscan, first download by typing or copying and pasting in to a Linux terminal:
   <br>git clone https://github.com/dievus/mayorscan.git
   <br>I recommend moving the directory to your desktop at this point for simplicity, as well as some experimental directory downloads in the future
   <br>cd mayorscan
-  <br>chmod u+x msv2.1.sh
+  <br>chmod u+x mayorscan.sh
   
-To run, type ./msv2.2sh
+To run, type ./mayorscan.sh
   
 Results will be outputted to a file based on selection at the beginning of the program
   <br>Option 1 creates a single output file
