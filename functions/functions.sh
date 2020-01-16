@@ -245,6 +245,7 @@ echo -e "[99] Exit to Terminal";
 				echo -e
 				sleep 1s
 				a_scan
+				vuln_scan
 				vulners
 				return_menu
 				break				
