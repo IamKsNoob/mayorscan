@@ -154,7 +154,7 @@ echo -e
 sleep 1s
 check1=/usr/share/nmap/scripts/vulscan/
 check2=/usr/share/nmap/scripts/vulners.nse
-if [ -d "$check1" ] || [ -f "$check2" ]; then
+if [ -d "$check1" ] && [ -f "$check2" ]; then
 	tput bold; tput setaf 2; echo -e "[SUCCESS] Dependencies installed. Initializing Scanning. This may take some time."; tput sgr0;
 else vuln_depen
 fi
@@ -212,8 +212,9 @@ tput bold; tput setaf 2; echo -e "Syntax - enter your NUMBER selections with no 
 	echo -e
 tput bold; 
 echo -e "[1] -A All Scan";
-echo -e "[2] Vulnerability Scan";
-echo -e "[3] All Listed Scans";
+echo -e "[2] Nmap Vulnerability Script Scan";
+echo -e "[3] Vulscan exploitDB Scan";
+echo -e "[4] All Listed Scans";
 echo -e "[99] Exit to Terminal";
 	read scan_set
 		case $scan_set in
@@ -225,19 +226,23 @@ echo -e "[99] Exit to Terminal";
 				break
 				;;
 				
-		"2")		tput setaf 2; tput bold; echo -e "Vulnerability Scan Selected. Beginning momentarily."; tput sgr0;
+		"2")		tput setaf 2; tput bold; echo -e "Nmap Vulnerability Script Scan Selected. Beginning momentarily."; tput sgr0;
 				echo -e
 				vuln_scan
-				vulners
 				return_menu
 				break
 				;;
+
+		"3")		tput setaf 2; tput bold; echo -e "Vulscan exploitDB Scan Selected. Beginning momentarily."; tput sgr0;
+				echo -e
+				vulners
+				break
+				;;
 				
-		"3")		tput setaf 2; tput bold; echo -e "All Listed Scans Selected. Beginning momentarily."; tput sgr0;
+		"4")		tput setaf 2; tput bold; echo -e "All Listed Scans Selected. Beginning momentarily."; tput sgr0;
 				echo -e
 				sleep 1s
 				a_scan
-				vuln_scan
 				vulners
 				return_menu
 				break				
