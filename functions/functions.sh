@@ -147,7 +147,7 @@ fi
 vulners(){
 tput setaf 2; tput bold; echo -e "#####################################"; tput sgr0;
 	echo -e
-tput setaf 2; tput bold; echo -e "Running nmap-vulners and Vulscan. [Experimental]"; tput sgr0;
+tput setaf 2; tput bold; echo -e "Running Vulscan. [Experimental]"; tput sgr0;
 	echo -e
 tput bold; echo -e "Checking for necessary dependencies."; tput sgr0;
 echo -e
@@ -236,6 +236,7 @@ echo -e "[99] Exit to Terminal";
 		"3")		tput setaf 2; tput bold; echo -e "Vulscan exploitDB Scan Selected. Beginning momentarily."; tput sgr0;
 				echo -e
 				vulners
+				return_menu
 				break
 				;;
 				
