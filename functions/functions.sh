@@ -149,6 +149,9 @@ tput setaf 2; tput bold; echo -e "#####################################"; tput s
 	echo -e
 tput setaf 2; tput bold; echo -e "Running Vulscan. [Experimental]"; tput sgr0;
 	echo -e
+tput setaf 2; tput bold; echo -e "Vulscan is known to return no results quickly. If this occurs, rerun the test, 
+or restart Mayorscan."; tput sgr0;
+	echo -e
 tput bold; echo -e "Checking for necessary dependencies."; tput sgr0;
 echo -e
 sleep 1s
