@@ -169,7 +169,7 @@ if [ "$scan" = "1" ]; then
 
 elif [ "$scan" = "2" ]; then
 	echo -e
-	sudo nmap --script vulscan --script-args vulscandb=exploitdb.csv -sV $name >&1 | tee $name/$name.Vulner.Vulscan.txt
+	sudo nmap --script vulscan --script-args vulscandb=exploitdb.csv -sV $name >&1 | tee $name/$name.Vulscan.txt
 	echo -e
 fi
 
