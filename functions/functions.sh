@@ -156,6 +156,7 @@ check1=/usr/share/nmap/scripts/vulscan/
 check2=/usr/share/nmap/scripts/vulners.nse
 if [ -d "$check1" ] && [ -f "$check2" ]; then
 	tput bold; tput setaf 2; echo -e "[SUCCESS] Dependencies installed. Initializing Scanning. This may take some time."; tput sgr0;
+sleep 1s
 else vuln_depen
 fi
 if [ "$scan" = "1" ]; then
