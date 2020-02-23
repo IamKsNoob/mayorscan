@@ -212,7 +212,7 @@ tput setaf 2; tput bold; echo -e "#####################################"; tput s
 while true; do
 tput bold; tput setaf 2; echo -e "Please select which scan(s) you would like to run"; tput sgr0;
 	echo -e
-tput bold; tput setaf 2; echo -e "Syntax - enter your NUMBER selections with no spaces."; tput sgr0;
+tput bold; tput setaf 2; echo -e "Syntax - enter your NUMBER selection and press enter."; tput sgr0;
 	echo -e
 tput bold; 
 echo -e "[1] -A All Scan";
