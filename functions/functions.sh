@@ -212,7 +212,7 @@ tput setaf 2; tput bold; echo -e "#####################################"; tput s
 while true; do
 tput bold; tput setaf 2; echo -e "Please select which scan(s) you would like to run"; tput sgr0;
 	echo -e
-tput bold; tput setaf 2; echo -e "Syntax - enter your NUMBER selection and press enter."; tput sgr0;
+tput bold; tput setaf 2; echo -e "Syntax - enter your NUMBER selections with no spaces."; tput sgr0;
 	echo -e
 tput bold; 
 echo -e "[1] -A All Scan";
@@ -269,7 +269,7 @@ echo -e "[99] Exit to Terminal";
 }
 
 return_menu(){
-	echo -e
+	echo -ehttps://github.com/dievus/mayorscan/blob/master/functions/functions.sh
 	tput setaf 2; echo -e "#####################################################################"; tput sgr0;
 	echo -e
 	tput bold; tput setaf 2; echo -e "Would you like to run another scan?"; tput sgr0;
@@ -277,8 +277,8 @@ return_menu(){
 while true; do	
 tput bold; echo -e "[1] Yes"; tput sgr0;
 tput bold; echo -e "[2] Exit to Command Line"; tput sgr0;
-read scan
-case $scan in
+read return
+case $return in
 	"1")
 		menu
 		break
